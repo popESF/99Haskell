@@ -1,15 +1,18 @@
 -- Question 1 --
 -- find the last element of a list
 
-myLast :: [a] -> a -- this is a type signature, it tells the compiler what the function does, this function takes a list of any type and returns an element of that type
-myLast [] = error "Empty list" -- this is a pattern match, it tells the compiler what to do when the function is called with an empty list
-myLast [x] = x -- this is a pattern match, it tells the compiler what to do when the function is called with a list of length 1
-myLast (x:xs) = myLast xs -- this matches any list of length greater than 1, and calls the function recursively on the tail of the list
+myLast :: [a] -> a              -- This is the function declaration, it says that myLast takes a list of any type and returns an element of that type
+myLast [] = error "Empty list"  -- This is the base case, it says that if the list is empty, throw an error
+myLast [x] = x                  -- This is the recursive case, it says that if the list has only one element, return that element
+myLast (x:xs) = myLast xs       -- This is the recursive case, it says that if the list has more than one element, call myLast on the tail of the list
+
+myLast = foldr1 (curry snd)     -- This is the same as the above, but using foldr1 and a lambda function, this is a monoid
+myLast = head . reverse         -- This is a one-liner that does the same thing as the above function
 
 -- Question 2 --
 -- Find the last but one element of a list
-myButLast :: [a] -> a -- myButLast [1,2,3,4] = 3
-myButLast [] = error "Empty list" -- myButLast [1] = error
-myButLast [x] = error "List too short" -- myButLast [1,2] = 1
-myButLast [x,y] = x -- myButLast [1,2,3] = 2
-myButLast (x:xs) = myButLast xs
+myButLast :: [a] -> a                     -- Function declaration
+myButLast [] = error "Empty list"         -- Base case
+myButLast [x] = error "List too short"    -- Base case
+myButLast [x,y] = x                       -- Recursive case, if the list has two elements, return the first
+myButLast (x:xs) = myButLast xs           -- This is the recursive case, it says that if the list has more than one element, call myButLast on the tail of the list
