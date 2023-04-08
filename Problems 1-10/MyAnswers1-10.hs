@@ -16,3 +16,10 @@ myButLast [] = error "Empty list"         -- Base case
 myButLast [x] = error "List too short"    -- Base case
 myButLast [x,y] = x                       -- Recursive case, if the list has two elements, return the first
 myButLast (x:xs) = myButLast xs           -- This is the recursive case, it says that if the list has more than one element, call myButLast on the tail of the list
+
+-- Question 3 --
+-- Find the K'th element of a list. The first element in the list is number 1.
+elementAt :: [a] -> Int -> a              -- Function declaration
+elementAt [] _ = error "Empty list"       -- Base case
+elementAt (x:xs) 1 = x                   -- Recursive case, if the index is 1, return the first element
+elementAt (x:xs) n = elementAt xs (n-1)  -- Recursive case, if the index is greater than 1, call elementAt on the tail of the list with the index decremented by 1
