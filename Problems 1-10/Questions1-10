@@ -1,0 +1,56 @@
+Problem 1
+(*) Find the last element of a list.
+
+(Note that the Lisp transcription of this problem is incorrect.)
+
+Example in Haskell:
+
+λ> myLast [1,2,3,4]
+4
+λ> myLast ['x','y','z']
+'z'
+----------------------------------------------------------------------------------
+Problem 2
+(*) Find the last but one element of a list.
+
+(Note that the Lisp transcription of this problem is incorrect.)
+
+Example in Haskell:
+
+λ> myButLast [1,2,3,4]
+3
+λ> myButLast ['a'..'z']
+'y'
+----------------------------------------------------------------------------------
+Problem 3
+(*) Find the K'th element of a list. The first element in the list is number 1.
+
+Example:
+
+* (element-at '(a b c d e) 3)
+c
+Example in Haskell:
+
+λ> elementAt [1,2,3] 2
+2
+λ> elementAt "haskell" 5
+'e'
+----------------------------------------------------------------------------------
+Problem 4
+(*) Find the number of elements of a list.
+
+Example in Haskell:
+
+λ> myLength [123, 456, 789]
+3
+λ> myLength "Hello, world!"
+13
+----------------------------------------------------------------------------------
+Problem 5
+(*) Reverse a list.
+Example in Haskell:
+
+λ> myReverse "A man, a plan, a canal, panama!"
+"!amanap ,lanac a ,nalp a ,nam A"
+λ> myReverse [1,2,3,4]
+[4,3,2,1] *9
